@@ -4,15 +4,16 @@ set -e
 for epoch in {5..400..5}
 do
     python test.py \
-    --dataroot ./datasets/horse2zebra \
-    --name h2z_SB_2 \
+    --dataroot ./datasets/maps \
+    --name maps_SB \
     --checkpoints_dir ./checkpoints \
     --mode sb \
     --eval \
     --phase test \
-    --num_test 1000 \
+    --direction BtoA \
+    --num_test 2000 \
     --epoch "$epoch" \
-    --gpu_ids 0
+    --gpu_ids 1
 done
 
 # python test.py \
